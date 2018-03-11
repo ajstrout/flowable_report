@@ -26,3 +26,49 @@ After the story has been populated generate the report using the generate functi
 * from reportlab.lib.styles import getSampleStyleSheet
 * from reportlab.lib.units import inch
 * from reportlab.pdfgen.canvas import Canvas
+
+## Example
+```Python
+import os
+import Flowable_Report
+import matplotlib.pyplot as plt
+
+
+def main():
+
+    # Initialze the report class object
+    report = Flowable_Report.Report(
+        r'C:\Users\astrout.000\Desktop\Example.pdf',
+        "Report Example",
+        "An analysis of some data"
+    )
+    # Add a spacer by calling the class object and using the print_spacer method
+    report.print_spacer()
+    # Some example data in list format
+    data = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    data1 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    # Add a line of text explaining the data using the print_line method
+    report.print_line(
+        "A list of the data the we have created"
+    )
+    # Add the data list to the report using the print_list method
+    report.print_list(data)
+    # Create an image
+    plt.plot(data, data1)
+    plt.savefig(r"C:\Users\astrout.000\Desktop\foo.jpg", bbox_inches='tight')
+    # Add image to the report
+    report.print_image(r"C:\Users\astrout.000\Desktop\foo.jpg", 1, 1)
+    # Add an additional image to report to see what happens when image is
+    # added and forces a page break
+    report.print_image(r"C:\Users\astrout.000\Desktop\foo.jpg", 1, 1)
+    # Generate the .pdf report
+    report.generate()
+    os.remove(r"C:\Users\astrout.000\Desktop\foo.jpg")
+
+
+if __name__ == '__main__':
+    main()
+```
+
+### Output
+![Report](/images/logo.png)
