@@ -1,4 +1,4 @@
-# flowable_report
+# Flowable_Report
 
 This module is a simple wrapper for the ReportLab module.
 
