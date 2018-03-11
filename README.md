@@ -71,4 +71,4 @@ if __name__ == '__main__':
 ```
 
 ### Output
-![Report](/images/logo.png)
+![Report](https://github.com/ajstrout/flowable_report/blob/master/Example.pdf)
